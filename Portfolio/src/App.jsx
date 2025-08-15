@@ -6,10 +6,12 @@ import Resume from "./Page/Resume.page.jsx";
 import {PortFolio} from "./Page/PortFolio.page.jsx";
 import Contact from "./Page/Contact.page.jsx";
 import HomeComponent from "./Components/Home.component.jsx";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   return (
     <div className="h-screen bg-[#121212]">
+      <Toaster/>
         <Routes>
           <Route path="/" element={<Home />}>
             <Route index element={<HomeComponent />} />

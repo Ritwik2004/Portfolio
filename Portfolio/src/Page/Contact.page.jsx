@@ -19,6 +19,9 @@ const Contact = () => {
       const { data } = await axios.post('/api/auth/sendMail', { email, name, message })
       if (data.success) {
         toast.success("Mail send Successfully.")
+        setName("");
+        setEmail("");
+        setMessage("");
       }
       else {
         toast.error(data.message)
@@ -77,13 +80,14 @@ const Contact = () => {
             type="submit"
             disabled={loading}
             onClick={onsubmitHandeller}
-            className="bg-yellow-500 text-black font-semibold py-2 px-6 rounded-md hover:bg-yellow-400 transition"
+            className='w-full flex justify-center items-center gap-2 bg-gradient-to-r bg-yellow-500 text-black font-semibold px-4 py-2 mt-6 text-sm rounded-lg cursor-pointer hover:bg-yellow-400'
           >
             {loading && (
-              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+              <span className='w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin'></span>
             )}
             {loading ? "sending Message..." : "Send Message"}
           </button>
+
         </form>
 
         {/* Direct Info */}
